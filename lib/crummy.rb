@@ -96,8 +96,17 @@ module Crummy
         crumb_string = crumbs.collect do |crumb|
           crumb_to_html crumb, options[:links]
         end * options[:seperator]
+        
         crumb_string = crumb_string.html_safe if crumb_string.respond_to?(:html_safe)
         crumb_string
+      when :html_with_list
+        list_items = ''
+        crumbs.each_with_index do |crumb, pos|
+          #append separator unless it is the last item in the list
+          list_item_content = ( pos == crumbs.length-1 ? crumb_to_html(crumb, options[:links]) : crumb_to_html(crumb, options[:links]) + options[:seperator] ) 
+          list_items << content_tag(:li, list_item_content )
+        end
+        content_tag :ul, list_items, :class => 'breadcrumb'
       when :xml
         crumbs.collect do |crumb|
           crumb_to_xml crumb, options[:links], options[:seperator]
