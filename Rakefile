@@ -7,12 +7,12 @@ task :default => :test
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "crummy"
+    gem.name = "caveman-crummy"
     gem.summary = %Q{Tasty breadcrumbs!}
     gem.description = %Q{Crummy is a simple and tasty way to add breadcrumbs to your Rails applications.}
     gem.email = "zach@lt3media.com"
-    gem.homepage = "http://github.com/zachinglis/crummy"
-    gem.authors = ["Zach Inglis"]
+    gem.homepage = "http://github.com/caveman/crummy"
+    gem.authors = ["Zach Inglis", "Randall Chin"]
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
