@@ -73,7 +73,7 @@ It takes 3 options
 
 The output format. Can either be :xml or :html. Defaults to :html
 
-<code>:format => (:html|:xml)</code>
+<code>:format => (:html|:xml|:html_with_list)</code>
 
 The seperator text. It does not assume you want spaces on either side so you must specify. Defaults to <code>&raquo;</code> for :html and <code><crumb></code> for :xml
 
@@ -90,6 +90,7 @@ h3. Examples
   render_crumbs                     #=> <a href="/">Home</a> &raquo; <a href="/businesses">Businesses</a>
   render_crumbs :seperator => ' | ' #=> <a href="/">Home</a> | <a href="/businesses">Businesses</a>
   render_crumbs :format => :xml     #=> <crumb href="/">Home</crumb><crumb href="/businesses">Businesses</crumb>
+  render_crumbs :seperator => ' > ', :format => :html_with_list #=> <ul class="breadcrumb"><li><a href="/">Home</a> > </li><li><a href="/businesses">Businesses</a></li></ul>
  </code>
 </pre>
 A crumb with a nil link will just output plain text.
